@@ -35,7 +35,7 @@ class ViewController: UIViewController {
     }
     
     @IBAction func changeLabelButtonACTION(_ sender: Any) {
-        alertYesNoText(currentTitle: "Изменить label", currentMessege: "просто напишите новый label и нажмите \"ОК\"", textPlaceholder: "пишите здесь")
+/*❗️*/     alertYesNoText(currentTitle: "Изменить label", currentMessege: "просто напишите новый label и нажмите \"ОК\"", textPlaceholder: "пишите здесь", currentFunc: setLabel(text:))
     }
     
     @IBAction func exitButtonACTION(_ sender: Any) {
@@ -48,7 +48,7 @@ class ViewController: UIViewController {
         self.present(alert, animated: true, completion: nil)
     }
     
-    func alertYesNoText(currentTitle:String, currentMessege:String, textPlaceholder:String){
+/*❗️*/    func alertYesNoText(currentTitle:String, currentMessege:String, textPlaceholder:String, currentFunc: @escaping (_ text: String) ->Void ){
         //1. Create the alert controller.
         let alert = UIAlertController(title: currentTitle, message: currentMessege, preferredStyle: .alert)
         
@@ -64,7 +64,8 @@ class ViewController: UIViewController {
             print("Text field: textField?.text")
             
             if textField?.text! != ""{
-                self.setLabel(text: (textField?.text!)!)
+          //      self.setLabel(text: (textField?.text!)!)
+//❗️                currentFunc((textField?.text!)!)
                 
             }
                 
